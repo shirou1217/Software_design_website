@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Lab_04 Calculator</title>
+
+		<!-- CSS and javascript -->
+		<link rel="stylesheet" type="text/css" href="Lab_04.css">
+		<script src="Lab_04.js"></script>
+	</head>
+
+	<!-- Todo 1: onkeydown = "your function here" -->
+	<body style="background-color:gray;">
+		<div id="calculator">
+			<div>
+				<input type="text" class="display" id="screen" value="0" readonly>
+			</div>
+			<table style="width:100%; table-layout:fixed ;" border="0" cellpadding="0">
+				<!-- Todo 2: onclick = "your function here" -->
+				<tr class="row">
+					<td><input type="button" value="C" class="btn btn3" onclick="appendToScreen('C')"></td>
+					<td><input type="button" value="(" class="btn btn3" onclick="appendToScreen('(')"></td>
+					<td><input type="button" value=")" class="btn btn3" onclick="appendToScreen(')')"></td>
+					<td><input type="button" value="÷" class="btn btn2" onclick="appendToScreen('/')"></td>
+				</tr>
+				<tr class="row">
+					<td><input type="button" value="7" class="btn" onclick="appendToScreen('7')"></td>
+					<td><input type="button" value="8" class="btn" onclick="appendToScreen('8')"></td>
+					<td><input type="button" value="9" class="btn" onclick="appendToScreen('9')"></td>
+					<td><input type="button" value="×" class="btn btn2" onclick="appendToScreen('*')"></td> <!--the '×' is not lowercase 'X'-->
+				</tr>
+				<tr class="row">
+					<td><input type="button" value="4" class="btn" onclick="appendToScreen('4')"></td>
+					<td><input type="button" value="5" class="btn" onclick="appendToScreen('5')"></td>
+					<td><input type="button" value="6" class="btn" onclick="appendToScreen('6')"></td>
+					<td><input type="button" value="-" class="btn btn2" onclick="appendToScreen('-')"></td>
+				</tr>	
+				<tr class="row">
+					<td><input type="button" value="1" class="btn" onclick="appendToScreen('1')"></td>
+					<td><input type="button" value="2" class="btn" onclick="appendToScreen('2')"></td>
+					<td><input type="button" value="3" class="btn" onclick="appendToScreen('3')"></td>
+					<td><input type="button" value="+" class="btn btn2" onclick="appendToScreen('+')"></td>
+				</tr>
+				<tr class="row">
+					<td colspan=2><input type="button" value="0" class="btn" onclick="appendToScreen('0')" style="width:100%;border-radius:40px"></td>
+					<td><input type="button" value="." class="btn" onclick="appendToScreen('.')"></td>
+					<td><input type="button" value="=" class="btn btn2" onclick="appendToScreen('=')"></td>
+				</tr>
+			</div>
+		</div>
+	</body>
+</html>

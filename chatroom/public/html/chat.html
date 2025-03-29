@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Chatroom</title>    
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="leftside">
+            <!--header-->
+            <div class="header">
+                <div class="userimg">
+                    <img src="/img/user.jpg" class="cover">
+                </div>
+                <!-- <input type="logout" id="outbtn" value="logout" onclick="module.sendmsg()"> -->
+                <ul class="icon">
+                    <li><ion-icon name="scan-circle-outline"></ion-icon></li>
+                    <li><ion-icon name="chatbox-outline"></ion-icon></li>
+                    <li><ion-icon name="ellipsis-vertical-outline"></ion-icon></li>
+                </ul>
+            </div>
+            <!--search_chat-->
+            <div class="search_chat">
+                <div>
+                    <input type="text" placeholder="Search Users">
+                    <ion-icon name="search-circle-outline"></ion-icon>
+                    <script src="/jsx/search.jsx"></script>
+                </div>
+            </div>
+            <!--chatlist-->
+            <!-- <div class="chatlist">
+
+            </div> -->
+        </div>
+        <div class="rightside">
+            <div id="message"></div>
+            <div id="sendmsg" class="chat_input">
+                <ion-icon name="happy-outline"></ion-icon>
+                <input type="text" id="msgtxt" placeholder="enter your msg...">
+                <input type="submit" id="subtn" value="send" onclick="module.sendmsg()">
+                <ion-icon name="mic-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <script>
+        module={};
+    </script>
+    <script type="module">
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+        import {getDatabase,ref,set,remove,onChildAdded,onChildRemoved} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+        const config={
+            apiKey: "AIzaSyBfC_hNlwhBm-CXvoijXnZWfvBwJdqwXPg",
+            authDomain: "softwaredesidn.firebaseapp.com",
+            databaseURL: "https://softwaredesidn-default-rtdb.firebaseio.com",
+            projectId: "softwaredesidn",
+            storageBucket: "softwaredesidn.appspot.com",
+            messagingSenderId: "157387608189",
+            appId: "1:157387608189:web:b57935d7411398a3f16114",
+            measurementId: "G-86B3M1QKX4"
+        }
+        const app=initializeApp(config);
+        const db=getDatabase(app);
+        //variable
+        var msgtxt=document.getElementById("msgtxt");
+        var sender;
+        // if(sessionStorage.getItem('sender')){
+        //     sender = sessionStorage.getItem('sender');
+        // }else{
+        //     sessionStorage.setItem('sender',sender);
+        // }
+        sender = sessionStorage.getItem('sender');
+        // if(sessionStorage.getItem('sender')){
+        //     sender = sessionStorage.getItem('sender');
+        // } else {
+        //     sender = document.getElementById('full_name').value;
+        // }
+
+        //to send message
+        module.sendmsg=function sendmsg(){
+            var msg=msgtxt.value;
+            var timestamp=new Date().getTime();
+            set(ref(db,"message/"+timestamp),{
+                msg:msg,
+                sender:sender
+            })
+            msgtxt.value="";
+        }
+        //to receive message
+        onChildAdded(ref(db,"message"), (data)=>{
+            //  var message = document.getElementById("rightside");
+            if(data.val().sender == sender){
+                message.innerHTML += "<div style=justify-content:end class=outer id="+data.key+"><div id=inner class=me>you : "+data.val().msg+"<button id=dltMsg onclick=module.dltMsg("+data.key+")>DELETE</button></div></div>";
+            } else {
+                message.innerHTML += "<div class=outer id="+data.key+"><div id=inner class=notMe>"+data.val().sender+" : "+data.val().msg+"</div></div>";
+            }
+        })
+         // to delete message
+         module.dltMsg = function dltMsg(key){
+            remove(ref(db,"message/"+key));
+        }
+
+        // when message is deleted
+        onChildRemoved(ref(db,"message"),(data)=>{
+            var msgBox = document.getElementById(data.key);
+            message.removeChild(msgBox);
+        })
+    </script>
+<!-- Google fonts. -->
+<link href='https://fonts.googleapis.com/css?family=Bungee Outline' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'/>
+<!-- Use font awesome icons. -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<!-- Use firebase app and database. -->
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebaapp.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
+
+<!-- The CSS and JS file must be declared after the things above-->
+<link rel="stylesheet" href="style.css"/>
+<!-- <script type="text/javascript" src="chat.js"></script> -->
+
+</body>
+</html>

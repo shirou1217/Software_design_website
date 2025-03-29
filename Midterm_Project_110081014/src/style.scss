@@ -1,0 +1,408 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin animate($animation,$duration,$method,$times){
+  animation: $animation $duration $method $times;
+}
+@mixin keyframes($name){
+  @keyframes #{$name}{
+      @content;
+  }
+}
+.Container {
+  background-image: url('./img/sakura_signin.jpg');
+  background-size: cover; /* Adjusts the size of the background image */
+  background-color: #f4cdff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .Wrapper {
+      background-color: white;
+      padding: 20px 60px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      
+   
+      .logoname {
+        color: #ff8ff4;
+        font-weight: bold;
+        font-size: 24px;
+
+      }
+
+      .TITLE {
+        color: #ff8ff4;
+        font-size: 12px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        input {
+          padding: 15px;
+          border: none;
+          width: 250px;
+          border-bottom: 1px solid #f2d1ff;
+          &::placeholder {
+            color: rgba(255, 183, 249, 0.973);
+          }
+        }
+
+        button {
+          background-color: #ea96ff;
+          color: white;
+          padding: 10px;
+          font-weight: bold;
+          border: none;
+          cursor: pointer;
+          background-image: linear-gradient(
+            to right,
+            rgba(247, 186, 255, 0.9) 25%,
+            rgba(225, 104, 244, 0.905) 50%,
+            rgba(226, 86, 221, 0.9) 75%
+          );
+          -webkit-animation: 4s linear 0s infinite alternate move_eye;
+          animation: 4s linear 0s infinite alternate move_eye;
+        }
+        
+        @keyframes move_eye {
+          from {
+            margin-left: 50%;
+          }
+          to {
+            margin-right: 50%;
+          }
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #f2d1ff;
+          font-size: 12px;
+          cursor: pointer;
+
+          img {
+            width: 32px;
+          }
+        }
+      }
+      p {
+        color: #c532fb;
+        font-size: 12px;
+        margin-top: 10px;
+      }
+    
+  }
+  
+}
+
+.HOME {
+  background-image: url('./img/sakura_chat2.jpeg');
+  background-size: cover; 
+  background-color: #f6c1ff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .homecontainer {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+    @include tablet {
+     width: 90%;
+    }
+
+    .sidebar {
+      flex: 1;
+      background-color:#f5b0d0c0;
+      position: relative;
+
+      .Upperbar {
+        display: flex;
+        align-items: center;
+        background-color: #ffa8d0;
+        height: 50px;
+        padding: 10px;
+        justify-content: space-between;
+        color: #fefefe;
+
+        .logoname {
+          font-weight: bold;
+          @include tablet {
+            display: none;
+          }
+        }
+
+        .user {
+          display: flex;
+          gap: 10px;
+
+          img {
+            background-color: #ddddf7;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          button {
+            font-size: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #df93ff;
+            color: #ffffff;
+            @include tablet {
+              position: absolute;
+              bottom: 10px;
+            }
+          }
+        }
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgb(172, 126, 176);
+        .search .search-icon {
+          display: flex;
+          margin-right: 10px;
+        }
+        
+        .search .searchForm {
+          padding: 10px;
+          input {
+            border: none;
+            outline: none;
+            color: white;
+            background-color: transparent;
+
+            &::placeholder {
+              color: rgb(255, 254, 254);
+            }
+          }
+        }
+      }
+
+      .SiderUser {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #522d40;
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .SiderUserInfo {
+          span {
+            font-weight: 499;
+            font-size: 19px;
+          }
+          p {
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+          }
+        }
+      }
+      .chtroom{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #c7719d;
+        }
+        .ctroominfo{
+          span {
+            font-size: 15px;
+            font-weight: 500;
+          }
+        }
+      }
+      
+      .room {
+        position: absolute;
+        bottom: 0;
+        width: 92.5%; 
+        background-color: #ffa8d0;
+        height: 50px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    
+          .addperson, .createroom {
+              display: flex;
+              align-items: center;
+              margin: 0 20px;
+          }
+          
+          .addperson img, .createroom img {
+              height: 30px;
+              cursor: pointer;
+              object-fit: cover;
+              
+          }
+        
+        }
+    }
+    .sidebaruser {
+      flex: 2;
+
+      .sidebaruserInfo {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #f5b0d0c0;
+        color: rgb(255, 254, 254);
+      }
+
+      .sidebarchatIcons {
+        display: flex;
+        gap: 10px;
+
+        img {
+          height: 30px;
+          cursor: pointer;
+        }
+      }
+
+      .msgbgr {
+        // background-image: url('./img/sakura.jpg');
+        // background-size: cover; 
+        height: calc(100% - 160px);
+        background-color: #f0ccf9d7;
+        padding: 9px;
+        overflow: scroll;
+
+        .message {
+          display: flex;
+          gap: 9px;
+          margin-bottom: 20px;
+
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            font-weight: 299;
+
+            img {
+              width: 39px;
+              height: 41px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .msgcontent {
+            max-width: 81%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            p {
+              background-color: white;
+              padding: 10px 20px;
+              border-radius: 0px 10px 10px 10px;
+              max-width: max-content;
+            }
+
+            img {
+              width: 50%;
+            }
+          }
+
+          &.owner {
+            flex-direction: row-reverse;
+
+            .msgcontent {
+              align-items: flex-end;
+              p {
+                border-radius: 11px 0px 11px 11px;
+                background-color: #da84ff;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+
+      .input {
+        height: 50px;
+        background-color: white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          color: #2f2d52;
+          font-size: 18px;
+
+          &::placeholder {
+            color: rgb(253, 186, 249);
+          }
+        }
+
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            height: 24px;
+            cursor: pointer;
+          }
+
+          button {
+            color: white;
+            background-color: #dfa0fd;
+            border: none;
+            padding: 11px 16px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

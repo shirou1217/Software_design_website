@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Lab03</title>
+    <link rel="stylesheet" href="./index.css"/>
+  </head>
+  <body>
+    <h1>Lab03</h1>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="./photos/1.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="./photos/2.jpg" alt="Second slide">
+        </div>
+      </div>
+    </div>    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">HOME</a>
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#photo">gallery</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              lovely music
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"></a>
+              <a class="dropdown-item" href="#rain">Passing rain with my cat</a>
+              <!-- <div class="dropdown-divider"></div> -->
+              <a class="dropdown-item" href="#relax">Relax with my cat</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          Hello,Here are some lovely sunrise photos and videos that I would like to share with you.
+        </div>
+      </div>
+    </nav>
+    <a id="photo"></a>
+    <!-- Photogallery-->
+    <div class="row" id="photogallery">
+      <div class="col-lg-3 photo-column">
+          <div class="photo-sm">
+              <img src="./photos/1.jpg" />
+          </div>
+          <div class="photo-big">
+            <img src="./photos/2.jpg" />
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 photo-column">
+          <div class="photo-sm">
+              <img src="./photos/3.jpg" />
+          </div>
+          <div class="photo-big">
+            <img src="./photos/4.jpg" />
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 photo-column">
+          <div class="photo-sm">
+              <img src="./photos/5.jpg" />
+          </div>
+          <div class="photo-big">
+            <img src="./photos/4.jpg" />
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 photo-column">
+          <div class="photo-sm">
+              <img src="./photos/1.jpg" />
+          </div>
+          <div class="photo-big">
+            <img src="./photos/2.jpg" />
+          </div>
+      </div>
+  </div>
+  <!-- Add some spacing -->
+  <a id="rain"></a>
+  <div style="margin-top: 20px;"></div>
+  <iframe class="video" src="https://www.youtube.com/embed/t4Z3tM0MOX0" title="Passing rain with my cat for 1 hour  • lofi cat 🎶 🌧 - Sleep, Relax, Study, Chill" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  
+  <a id="relax"></a>
+  <div style="margin-top: 20px;"></div>
+  <iframe class="video" src="https://www.youtube.com/embed/sR6tjNq8Ywk" title="1 Hour Lofi Cat • Relax with my cat - Sleep, Relax, Study, Chill" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
